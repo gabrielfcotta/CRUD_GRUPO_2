@@ -7,15 +7,7 @@ class UniverseSerializer(serializers.ModelSerializer):
         fields = ('UniverseId',
                  'UniverseName')
 
-class PowerSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Power
-        fields = ('PowerId',
-                 'PowerName')
-        extra_kwargs = {'HeroName': {'required': False}}
-
 class HeroSerializer(serializers.ModelSerializer):
-    Power = PowerSerializer(many=True, read_only=True)
     class Meta: 
         model = Hero
         fields = ('HeroId',
@@ -27,3 +19,13 @@ class HeroSerializer(serializers.ModelSerializer):
                  'PhotoFileName',
                  'Deleted')
         extra_kwargs = {'Power': {'required': False}}
+
+class PowerSerializer(serializers.ModelSerializer):
+    heroes = HeroSerializer(many=True, read_only=True)
+    class Meta:
+        model = Power
+        fields = ('PowerId',
+                 'PowerName',
+                 'heroes')
+        extra_kwargs = {'heroes': {'required': False}}
+

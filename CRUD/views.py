@@ -99,17 +99,17 @@ def heroApi(request,id=0):
 
     elif request.method=='DELETE':
         hero = Hero.objects.get(HeroId=id)
-        setattr(hero,'Deletado','True')
+        setattr(hero,'Deleted','True')
         hero.save()
         return JsonResponse('Deletado', safe=False)     
     
 
-    ##Used in case needed to recreate a hero after soft deletion
+    #Used in case needed to recreate a hero after soft deletion
     #elif request.method=='PATCH':
     #    hero = Hero.objects.get(HeroId=id)
-    #   setattr(hero,'Deletado','False')
+    #    setattr(hero,'Deleted','False')
     #    hero.save()
-    #    return JsonResponse('Recriado', safe=False) 
+    #    return JsonResponse('Deletado', safe=False)
 
 
 @csrf_exempt
