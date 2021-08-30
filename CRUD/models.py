@@ -19,6 +19,7 @@ class Power(models.Model):
 class Hero(models.Model):
     HeroId = models.AutoField(primary_key=True)
     HeroName = models.CharField(max_length=100)
+    UserId = models.CharField(max_length=100)
     Power = models.ManyToManyField(Power, related_name='Hero', blank=True)
     Universe = models.ForeignKey(Universe, on_delete=models.CASCADE)
     CreationDate = models.DateField()
