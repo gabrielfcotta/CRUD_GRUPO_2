@@ -21,8 +21,8 @@ def universeApi(request,id=0):
         universe_serializer = UniverseSerializer(data=universe_data)
         if universe_serializer.is_valid():
             universe_serializer.save()
-            return JsonResponse("Added Successfully!!" , safe=False)
-        return JsonResponse("Failed to Add.",safe=False)
+            return JsonResponse("Adicionado com sucesso!!" , safe=False)
+        return JsonResponse("Falha ao adicionar.",safe=False)
     
     elif request.method=='PUT':
         universe_data = JSONParser().parse(request)
@@ -30,13 +30,13 @@ def universeApi(request,id=0):
         universe_serializer=UniverseSerializer(universe,data=universe_data)
         if universe_serializer.is_valid():
             universe_serializer.save()
-            return JsonResponse("Updated Successfully!!", safe=False)
-        return JsonResponse("Failed to Update.", safe=False)
+            return JsonResponse("Atualizado com sucesso!!", safe=False)
+        return JsonResponse("Falha ao atualizar.", safe=False)
 
     elif request.method=='DELETE':
         universe=Universe.objects.get(UniverseId=id)
         universe.delete()
-        return JsonResponse("Deleted Succeffully!!", safe=False)
+        return JsonResponse("Deletado com sucesso!!", safe=False)
         
 @csrf_exempt
 def powerApi(request,id=0):
@@ -50,8 +50,8 @@ def powerApi(request,id=0):
         power_serializer = PowerSerializer(data=power_data)
         if power_serializer.is_valid():
             power_serializer.save()
-            return JsonResponse("Added Successfully!!" , safe=False)
-        return JsonResponse("Failed to Add.",safe=False)
+            return JsonResponse("Adicionado com sucesso!!" , safe=False)
+        return JsonResponse("Falha ao adicionar.",safe=False)
     
     elif request.method=='PUT':
         power_data = JSONParser().parse(request)
@@ -59,13 +59,13 @@ def powerApi(request,id=0):
         power_serializer=PowerSerializer(power,data=power_data)
         if power_serializer.is_valid():
             power_serializer.save()
-            return JsonResponse("Updated Successfully!!", safe=False)
-        return JsonResponse("Failed to Update.", safe=False)
+            return JsonResponse("Atualizado com sucesso!!", safe=False)
+        return JsonResponse("Falha ao atualizar.", safe=False)
 
     elif request.method=='DELETE':
         power=Power.objects.get(PowerId=id)
         power.delete()
-        return JsonResponse("Deleted Succeffully!!", safe=False)
+        return JsonResponse("Deletado com sucesso!!", safe=False)
 
 @csrf_exempt
 def heroApi(request,id=0):
@@ -79,8 +79,8 @@ def heroApi(request,id=0):
         hero_serializer = HeroSerializer(data=hero_data)
         if hero_serializer.is_valid():
             hero_serializer.save()
-            return JsonResponse("Added Successfully!!" , safe=False)
-        return JsonResponse("Failed to Add.",safe=False)
+            return JsonResponse("Adicionado com sucesso!!" , safe=False)
+        return JsonResponse("Falha ao adicionar.",safe=False)
     
     elif request.method=='PUT':
         hero_data = JSONParser().parse(request)
@@ -88,22 +88,20 @@ def heroApi(request,id=0):
         hero_serializer=HeroSerializer(hero,data=hero_data)
         if hero_serializer.is_valid():
             hero_serializer.save()
-            return JsonResponse("Updated Successfully!!", safe=False)
-        return JsonResponse("Failed to Update.", safe=False)
+            return JsonResponse("Atualizado com sucesso!!", safe=False)
+        return JsonResponse("Falha ao atualizar.", safe=False)
 
     elif request.method=='DELETE':
         hero = Hero.objects.get(HeroId=id)
-        setattr(hero,'Deleted','True')
+        setattr(hero,'Deletado','True')
         hero.save()
-        return JsonResponse('Deleted', safe=False)
-
-    #Na realidade é usado para recriar um herói que foi deletado
+        return JsonResponse('Deletado', safe=False)     
+    
     elif request.method=='PATCH':
         hero = Hero.objects.get(HeroId=id)
-        setattr(hero,'Deleted','False')
+        setattr(hero,'Deletado','False')
         hero.save()
-        return JsonResponse('Recreated', safe=False)     
-    
+        return JsonResponse('Recriado', safe=False) 
 
 
 @csrf_exempt

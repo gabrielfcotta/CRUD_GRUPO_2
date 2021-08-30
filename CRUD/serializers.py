@@ -12,9 +12,10 @@ class PowerSerializer(serializers.ModelSerializer):
         model = Power
         fields = ('PowerId',
                  'PowerName')
+        extra_kwargs = {'HeroName': {'required': False}}
 
 class HeroSerializer(serializers.ModelSerializer):
-    power = PowerSerializer(many=True, read_only=True)
+    Power = PowerSerializer(many=True, read_only=True)
     class Meta: 
         model = Hero
         fields = ('HeroId',
