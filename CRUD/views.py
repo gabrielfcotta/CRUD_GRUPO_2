@@ -95,13 +95,15 @@ def heroApi(request,id=0):
         hero = Hero.objects.get(HeroId=id)
         setattr(hero,'Deleted','True')
         hero.save()
-        return JsonResponse('deleted', safe=False)
+        return JsonResponse('Deleted', safe=False)
 
+    #Na realidade é usado para recriar um herói que foi deletado
     elif request.method=='PATCH':
         hero = Hero.objects.get(HeroId=id)
         setattr(hero,'Deleted','False')
         hero.save()
         return JsonResponse('Recreated', safe=False)     
+    
 
 
 @csrf_exempt
