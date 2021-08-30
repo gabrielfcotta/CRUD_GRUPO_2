@@ -20,7 +20,7 @@ class HeroSerializer(serializers.ModelSerializer):
         model = Hero
         fields = ('HeroId',
                  'HeroName',
-                 'UserId'
+                 'UserId',
                  'Power',
                  'Universe',
                  'CreationDate',
