@@ -16,27 +16,30 @@ def universeApi(request,id=0):
         universe_serializer = UniverseSerializer(universe, many=True)
         return JsonResponse(universe_serializer.data, safe=False)
 
-    elif request.method=='POST':
-        universe_data=JSONParser().parse(request)
-        universe_serializer = UniverseSerializer(data=universe_data)
-        if universe_serializer.is_valid():
-            universe_serializer.save()
-            return JsonResponse("Adicionado com sucesso!!" , safe=False)
-        return JsonResponse("Falha ao adicionar.",safe=False)
+    ## Used to create an universe, feature not used in the final CRUD.
+    #elif request.method=='POST':
+    #    universe_data=JSONParser().parse(request)
+    #    universe_serializer = UniverseSerializer(data=universe_data)
+    #    if universe_serializer.is_valid():
+    #        universe_serializer.save()
+    #        return JsonResponse("Adicionado com sucesso!!" , safe=False)
+    #    return JsonResponse("Falha ao adicionar.",safe=False)
     
-    elif request.method=='PUT':
-        universe_data = JSONParser().parse(request)
-        universe=Universe.objects.get(UniverseId=universe_data['UniverseId'])
-        universe_serializer=UniverseSerializer(universe,data=universe_data)
-        if universe_serializer.is_valid():
-            universe_serializer.save()
-            return JsonResponse("Atualizado com sucesso!!", safe=False)
-        return JsonResponse("Falha ao atualizar.", safe=False)
+    ## Used to update an universe, feature not used in the final CRUD.
+    #elif request.method=='PUT':
+    #    universe_data = JSONParser().parse(request)
+    #    universe=Universe.objects.get(UniverseId=universe_data['UniverseId'])
+    #    universe_serializer=UniverseSerializer(universe,data=universe_data)
+    #    if universe_serializer.is_valid():
+    #        universe_serializer.save()
+    #        return JsonResponse("Atualizado com sucesso!!", safe=False)
+    #    return JsonResponse("Falha ao atualizar.", safe=False)
 
-    elif request.method=='DELETE':
-        universe=Universe.objects.get(UniverseId=id)
-        universe.delete()
-        return JsonResponse("Deletado com sucesso!!", safe=False)
+    ## Used to delete an universe from database, feature not used in the final CRUD.    
+    #elif request.method=='DELETE':
+    #    universe=Universe.objects.get(UniverseId=id)
+    #    universe.delete()
+    #    return JsonResponse("Deletado com sucesso!!", safe=False)
         
 @csrf_exempt
 def powerApi(request,id=0):
@@ -45,27 +48,30 @@ def powerApi(request,id=0):
         power_serializer = PowerSerializer(power, many=True)
         return JsonResponse(power_serializer.data, safe=False)
 
-    elif request.method=='POST':
-        power_data=JSONParser().parse(request)
-        power_serializer = PowerSerializer(data=power_data)
-        if power_serializer.is_valid():
-            power_serializer.save()
-            return JsonResponse("Adicionado com sucesso!!" , safe=False)
-        return JsonResponse("Falha ao adicionar.",safe=False)
+    ## Used to create a power, feature not used in the final CRUD.
+    #elif request.method=='POST':
+    #    power_data=JSONParser().parse(request)
+    #    power_serializer = PowerSerializer(data=power_data)
+    #    if power_serializer.is_valid():
+    #        power_serializer.save()
+    #        return JsonResponse("Adicionado com sucesso!!" , safe=False)
+    #    return JsonResponse("Falha ao adicionar.",safe=False)
     
-    elif request.method=='PUT':
-        power_data = JSONParser().parse(request)
-        power=Power.objects.get(PowerId=power_data['PowerId'])
-        power_serializer=PowerSerializer(power,data=power_data)
-        if power_serializer.is_valid():
-            power_serializer.save()
-            return JsonResponse("Atualizado com sucesso!!", safe=False)
-        return JsonResponse("Falha ao atualizar.", safe=False)
+    ## Used to update an universe, feature not used in the final CRUD.
+    #elif request.method=='PUT':
+    #    power_data = JSONParser().parse(request)
+    #    power=Power.objects.get(PowerId=power_data['PowerId'])
+    #    power_serializer=PowerSerializer(power,data=power_data)
+    #    if power_serializer.is_valid():
+    #        power_serializer.save()
+    #        return JsonResponse("Atualizado com sucesso!!", safe=False)
+    #    return JsonResponse("Falha ao atualizar.", safe=False)
 
-    elif request.method=='DELETE':
-        power=Power.objects.get(PowerId=id)
-        power.delete()
-        return JsonResponse("Deletado com sucesso!!", safe=False)
+    ## Used to delete an universe from database, feature not used in the final CRUD.
+    #elif request.method=='DELETE':
+    #    power=Power.objects.get(PowerId=id)
+    #    power.delete()
+    #    return JsonResponse("Deletado com sucesso!!", safe=False)
 
 @csrf_exempt
 def heroApi(request,id=0):
@@ -98,7 +104,7 @@ def heroApi(request,id=0):
         return JsonResponse('Deletado', safe=False)     
     
 
-    ##Used in case we wanted to recreate a hero after soft deletion
+    ##Used in case needed to recreate a hero after soft deletion
     #elif request.method=='PATCH':
     #    hero = Hero.objects.get(HeroId=id)
     #   setattr(hero,'Deletado','False')
