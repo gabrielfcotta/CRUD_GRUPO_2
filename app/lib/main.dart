@@ -27,20 +27,6 @@ void main() => runApp(
           ChangeNotifierProvider(
             create: (context) => Auth(),
           ),
-          /* ChangeNotifierProxyProvider<Auth, Products>(
-            create: (context) => Products(null, null, []),
-            update: (context, auth, previousProducts) => Products(
-                auth.token,
-                auth.userId,
-                previousProducts == null ? [] : previousProducts.items),
-          ),
-          ChangeNotifierProxyProvider<Auth, Orders>(
-            create: (context) => Orders(null, '', []),
-            update: (context, auth, previousOrders) => Orders(
-                auth.token,
-                auth.userId,
-                previousOrders == null ? [] : previousOrders.orders),
-          ), */
         ],
         child: Consumer<Auth>(
           builder: (context, auth, _) => MaterialApp(
