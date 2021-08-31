@@ -18,7 +18,7 @@ class HeroDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          hero.universe.id,
+          hero.name,
           style: TextStyle(
             color: Colors.white,
           ),

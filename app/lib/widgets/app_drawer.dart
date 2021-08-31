@@ -39,7 +39,7 @@ class AppDrawer extends StatelessWidget {
                   Icons.edit,
                   color: Colors.black,
                 ),
-                title: Text('Your Heros'),
+                title: Text('Your Heroes'),
                 onTap: () {
                   Navigator.of(context)
                       .pushReplacementNamed(UserHeroScreen.routeName);

@@ -21,7 +21,7 @@ class HeroPowerCard extends StatelessWidget {
               gradient: LinearGradient(
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
-                  colors: [Color(0xFF22052D), Color(0xFFCCB3D1)]),
+                  colors: [Color(0xFFFFFF33), Color(0xFFeb07d4)]),
               borderRadius: BorderRadius.circular(50),
               color: Colors.lightGreenAccent,
             ),

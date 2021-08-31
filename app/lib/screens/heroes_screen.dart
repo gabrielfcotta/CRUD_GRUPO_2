@@ -14,13 +14,13 @@ class HeroesScreen extends StatelessWidget {
             tabs: <Tab>[
               Tab(
                 child: Text(
-                  'All heros',
+                  'All heroes',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
               Tab(
                 child: Text(
-                  'My heros',
+                  'My heroes',
                   style: TextStyle(color: Colors.white),
                 ),
               ),

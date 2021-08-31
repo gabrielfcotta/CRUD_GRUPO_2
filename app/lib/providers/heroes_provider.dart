@@ -86,15 +86,8 @@ class HeroesProvider with ChangeNotifier {
             'HeroId': int.parse(newHero.id),
             'HeroName': newHero.name,
             'UserId': 'gabrielfcotta@hotmail.com',
-            'Power': (newHero.powers as List<dynamic>)
-                .map((power) => Power(id: power.toString()))
-                .toList() /* newHero.powers
-                .map((power) => {
-                      'PowerId': int.parse(power.id),
-                      'PowerName': power.name,
-                    })
-                .toList() */
-            ,
+            'Power':
+                newHero.powers.map((power) => power.id.toString()).toList(),
             'Universe': 1,
             'CreationDate': timestamp,
             'PhotoFileName': newHero.imageUrl,
@@ -171,13 +164,13 @@ class HeroesProvider with ChangeNotifier {
             Hero(
               id: hero['HeroId'].toString(),
               name: hero['HeroName'],
-              powers: [] /* (hero['Power'] as List<dynamic>)
-                  .map((power) => Power(id: power.toString()))
-                  .toList() */
-              ,
+              powers: (hero['Power'] as List<dynamic>)
+                  .map((power) =>
+                      Power(id: power.toString(), name: power.toString()))
+                  .toList(),
               imageUrl: hero['PhotoFileName'],
               universe: Universe(
-                name: hero['Universe'].toString() == 1
+                name: hero['Universe'] == 1
                     ? 'Ey Comics'
                     : hero['Universe'] == 2
                         ? 'Trainee Comics'
