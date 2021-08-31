@@ -23,5 +23,5 @@ class Hero(models.Model):
     Power = models.ManyToManyField(Power, related_name='heroes', blank=True)
     Universe = models.ForeignKey(Universe, on_delete=models.CASCADE)
     CreationDate = models.DateField()
-    PhotoFileName = models.CharField(max_length=100)
+    PhotoFileName = models.CharField(max_length=1000000)
     Deleted = models.BooleanField(default=False)

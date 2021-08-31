@@ -111,11 +111,11 @@ def heroApi(request,id=0):
     #    hero.save()
     #    return JsonResponse('Deletado', safe=False)
 
-
-@csrf_exempt
-def SaveFile(request):
-    file=request.FILES['uploadedFile']
-    file_name = default_storage.save(file.name,file)
-
-    return JsonResponse(file_name,safe=False)
+##To be used in next versions, in order to retrieve images from pc.
+#@csrf_exempt
+#def SaveFile(request):
+#    file=request.FILES['uploadedFile']
+#    file_name = default_storage.save(file.name,file)
+#
+#    return JsonResponse(file_name,safe=False)
 
